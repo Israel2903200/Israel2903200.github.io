@@ -1,0 +1,228 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #a8d5a8 0%, #b8d9a8 100%);
+            min-height: 100vh;
+        }
+
+        /* Estilos de cabecera y menu */
+        .cabecera {
+            background-color: #90d090;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .boton {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: #e8e8e8;
+            transition: left 0.3s ease;
+            z-index: 200;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            
+        }
+
+        .menu.abierto {
+            left: 0;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 150;
+        }
+
+        .menu-overlay.activo {
+            display: block;
+        }
+
+        .provincia-menu {
+            padding: 15px 20px;
+            border-bottom: 1px solid #d0d0d0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .provincia-menu:hover {
+            background-color: #f5f5f5;
+        }
+
+        .provincia-submenu {
+            background-color: #f0e8f0;
+            display: none;
+            padding: 10px 0;
+        }
+
+        .provincia-submenu.abierto{
+            display: block;
+        }
+
+
+        .nodo-submenu {
+            padding: 10px 30px;
+            font-style: italic;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .nodo-submenu:hover {
+            background-color: #e8d8e8;
+        }
+
+
+        /* Estilos del contenido */
+        .contenido {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .introduccion {
+             background-color: rgba(255, 255, 255, 0.3);
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .introduccion h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .introduccion p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 20px;
+            text-align: justify;
+        }
+
+
+        /* Estilos de los nodos */
+        .nodo {
+            background-color: #008000;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 2px solid #000;
+        }
+
+        .nodo h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nodo-contenido {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .nodo-imagen {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .nodo-informacion {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .nodo-dato {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .nodo-icono {
+            font-size: 20px;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .nodo p {
+            grid-column: 1 / -1;
+            margin-top: 15px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 2px solid #000;
+            border-radius: 8px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .boton-scroll {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #008000;
+            border: 3px solid #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .boton-scroll:hover {
+            transform: scale(1.1);
+        }
+
+         @media (max-width: 768px) {
+            .nodo-contenido {
+                grid-template-columns: 1fr;
+            }
+
+            .contenido {
+                padding: 15px;
+            }
+
+            .introduccion {
+                padding: 25px;
+            }
+        }
